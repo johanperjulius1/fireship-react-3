@@ -5,13 +5,24 @@ export default function App() {
   const [state, setState] = useState(1)
   console.count()
 
-  const handleClick = () => {
-    setState(state => state + 1)
+  let count = 0
+
+  function counter() {
+  
+    count++
+    return count
   }
+  const handleClick = () => {
+    // setState(state => state + 1)
+    console.log(counter())
+    console.log(counter())
+    console.log(counter())
+  }
+
 
   return (
     <>
-      {state}
+      {count}
       <button onClick={handleClick}>Click</button>
     </>
   )
