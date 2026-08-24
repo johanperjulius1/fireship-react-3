@@ -1,9 +1,10 @@
 import { useState } from "react"
+import TodoItem from "./TodoItem"
 import "./TodoList.css"
 
 
+
 function TodoList() {
-    console.log("hello from todolist")
     const [todos, setTodos] = useState([{
         id: Date.now(),
         completed: true,
@@ -14,20 +15,45 @@ function TodoList() {
         text: "make the dishes"
     }])
 
+    const [todoInput, setTodoInput] = useState("")
 
+    const handleTodoInput = (e) => {
+        const userInput = e.target.value
+        setTodoInput(userInput)
+    }
+
+    const addTodo = () => {
+        const text = todoInput.trim()
+        if (!text) {
+            return
+        }
+
+        const newTodo = {
+            id: Date.now(),
+            text,
+            completed: false,
+        }
+
+        setTodos((todos) => [...todos, newTodo])
+        setTodoInput("")
+    }
 
     return (
         <section>
+            <div>
+                <label htmlFor="todoInput"></label>
+                <input
+                    type="text"
+                    name="todoInput"
+                    onChange={handleTodoInput}
+                    value={todoInput}
+                />
+                <button onClick={addTodo}>Add todo</button>
+            </div>
             <ul>
-                {
-                    todos.map(todo => {
-                        return <li
-                            key={todo.id}
-                            className={todo.completed ? "completed" : ""}>
-                            {todo.text}
-                        </li>
-                    })
-                }
+                {todos.map((todo) => (
+                    <TodoItem key={todo.id} todo={todo} />
+                ))}
             </ul>
 
         </section>
