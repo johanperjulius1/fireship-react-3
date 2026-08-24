@@ -6,11 +6,11 @@ import "./TodoList.css"
 
 function TodoList() {
     const [todos, setTodos] = useState([{
-        id: Date.now(),
+        id: crypto.randomUUID(),
         completed: true,
         text: "make the dishes"
     }, {
-        id: Date.now(),
+        id: crypto.randomUUID(),
         completed: false,
         text: "make the dishes"
     }])
@@ -29,13 +29,17 @@ function TodoList() {
         }
 
         const newTodo = {
-            id: Date.now(),
+            id: crypto.randomUUID(),
             text,
             completed: false,
         }
 
         setTodos((todos) => [...todos, newTodo])
         setTodoInput("")
+    }
+
+    const deleteTodo = (id) => {
+        setTodos((todos) => todos.filter((todo) => todo.id !== id))
     }
 
     return (
@@ -52,7 +56,7 @@ function TodoList() {
             </div>
             <ul>
                 {todos.map((todo) => (
-                    <TodoItem key={todo.id} todo={todo} />
+                    <TodoItem key={todo.id} todo={todo} onDelete={deleteTodo} />
                 ))}
             </ul>
 
