@@ -42,6 +42,12 @@ function TodoList() {
         setTodos((todos) => todos.filter((todo) => todo.id !== id))
     }
 
+    const toggleTodo = (id) => {
+        setTodos((todos) => todos.map((todo) => (
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        )))
+    }
+
     return (
         <section>
             <div>
@@ -56,7 +62,12 @@ function TodoList() {
             </div>
             <ul>
                 {todos.map((todo) => (
-                    <TodoItem key={todo.id} todo={todo} onDelete={deleteTodo} />
+                    <TodoItem
+                        key={todo.id}
+                        todo={todo}
+                        onDelete={deleteTodo}
+                        onToggle={toggleTodo}
+                    />
                 ))}
             </ul>
 
