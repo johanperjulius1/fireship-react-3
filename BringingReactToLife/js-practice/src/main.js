@@ -120,7 +120,7 @@ console.log(users.filter(user => user.id !== 2))
 // Exercise 15 — UPDATE
 
 console.log(users.map(user => {
-  if(user.id === 3){
+  if (user.id === 3) {
     return {
       ...user,
       age: 29
@@ -131,5 +131,33 @@ console.log(users.map(user => {
 
 // Exercise 16 — FILTER
 
-const filteredArr = users.filter(user => user.age >= 30) 
+const filteredArr = users.filter(user => user.age >= 30)
 console.log(filteredArr)
+
+// Exercise 17
+
+const todos = [
+  { id: 1, text: "Learn arrays", completed: true },
+  { id: 2, text: "Learn objects", completed: false },
+  { id: 3, text: "Learn React", completed: false }
+]
+
+console.log([...todos, {
+  id: 4,
+  text: "Practice useReducer",
+  completed: false
+}])
+
+// Exercise 18 — Complete a todo
+
+const updatedTodo = todos.map(todo => {
+  if (todo.id === 2) {
+    return {
+      ...todo,
+      completed: true,
+    }
+  }
+  return todo;
+})
+
+console.log(updatedTodo)
