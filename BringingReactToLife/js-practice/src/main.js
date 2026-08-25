@@ -161,3 +161,34 @@ const updatedTodo = todos.map(todo => {
 })
 
 console.log(updatedTodo)
+
+// Exercise 19 — Delete a todo
+
+console.log(todos.filter(todo => todo.id !== 1))
+
+// Exercise 20 — Show only incomplete todos
+
+console.log(todos.filter(todo => todo.completed !== true))
+
+// ⭐ Final challenge
+
+let products = [
+  { id: 1, name: "Laptop", price: 1200, inStock: true },
+  { id: 2, name: "Phone", price: 800, inStock: true },
+  { id: 3, name: "Tablet", price: 500, inStock: false }
+];
+
+// A. Add
+console.log([...products, { id: 4, name: "Monitor", price: 300, inStock: true }])
+
+// B. Update
+
+console.log(products.map(product => {
+  if (product.name === "Laptop") {
+    return {
+      ...product,
+      price: 1100
+    }
+  }
+  return product;
+}))
