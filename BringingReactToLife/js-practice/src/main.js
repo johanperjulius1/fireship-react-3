@@ -96,3 +96,40 @@ const updateUser = (user) => {
 }
 
 console.log(users.map(updateUser))
+
+// Exercise 12 — Update a different property: name
+
+console.log(users.map(user => {
+  if (user.name === "Lisa") {
+    return {
+      ...user,
+      name: "Elizabeth"
+    }
+  }
+  return user;
+}))
+
+// 13 Create user
+
+console.log([...users, { id: 4, name: "Marcus", age: 35 }])
+
+// Exercise 14 — DELETE
+
+console.log(users.filter(user => user.id !== 2))
+
+// Exercise 15 — UPDATE
+
+console.log(users.map(user => {
+  if(user.id === 3){
+    return {
+      ...user,
+      age: 29
+    }
+  }
+  return user;
+}))
+
+// Exercise 16 — FILTER
+
+const filteredArr = users.filter(user => user.age >= 30) 
+console.log(filteredArr)
