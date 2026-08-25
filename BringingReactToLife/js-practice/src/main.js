@@ -172,11 +172,11 @@ console.log(todos.filter(todo => todo.completed !== true))
 
 // ⭐ Final challenge
 
-let products = [
-  { id: 1, name: "Laptop", price: 1200, inStock: true },
-  { id: 2, name: "Phone", price: 800, inStock: true },
-  { id: 3, name: "Tablet", price: 500, inStock: false }
-];
+  let products = [
+    { id: 1, name: "Laptop", price: 1200, inStock: true },
+    { id: 2, name: "Phone", price: 800, inStock: true },
+    { id: 3, name: "Tablet", price: 500, inStock: false }
+  ];
 
 // A. Add
 console.log([...products, { id: 4, name: "Monitor", price: 300, inStock: true }])
@@ -192,3 +192,15 @@ console.log(products.map(product => {
   }
   return product;
 }))
+
+// C. Delete
+
+console.log(products.filter(product => product.name !== "Tablet"))
+
+// D. Filter
+
+const productsInStock = products.filter(product => product.inStock === true)
+console.log(productsInStock)
+
+const cheapInStock = products.filter(product => product.inStock === true && product.price < 1000)
+console.log(cheapInStock)
