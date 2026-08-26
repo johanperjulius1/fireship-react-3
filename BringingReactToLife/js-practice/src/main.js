@@ -156,3 +156,17 @@ console.log(todos.map(todo => todo.id === 3 ? {
 } : todo))
 
 // Exercise 19 — Delete a todo
+
+console.log(todos.filter(todo => todo.id !== 1))
+
+// Exercise 20 — Show only incomplete todos
+
+console.log(todos.filter(todo => todo.completed === false))
+
+// ⭐ Final challenge
+
+let products = [
+  { id: 1, name: "Laptop", price: 1200, inStock: true },
+  { id: 2, name: "Phone", price: 800, inStock: true },
+  { id: 3, name: "Tablet", price: 500, inStock: false }
+];
