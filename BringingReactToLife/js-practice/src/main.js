@@ -132,3 +132,27 @@ console.log(users.map(user => user.id === 3 ? {
 const olderThan30 = users.filter(user => user.age >= 30)
 console.log(olderThan30)
 
+// 🔥 Level 6 — React-style challenge
+
+const todos = [
+  { id: 1, text: "Learn arrays", completed: true },
+  { id: 2, text: "Learn objects", completed: false },
+  { id: 3, text: "Learn React", completed: false }
+]
+
+// Exercise 17 — Add a todo
+
+console.log([...todos, {
+  id: 4,
+  text: "Practice useReducer",
+  completed: false
+}])
+
+// Exercise 18 — Complete a todo
+
+console.log(todos.map(todo => todo.id === 3 ? {
+  ...todo,
+  completed: true
+} : todo))
+
+// Exercise 19 — Delete a todo
