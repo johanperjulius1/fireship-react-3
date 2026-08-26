@@ -170,3 +170,32 @@ let products = [
   { id: 2, name: "Phone", price: 800, inStock: true },
   { id: 3, name: "Tablet", price: 500, inStock: false }
 ];
+
+// A. Add
+
+// Add:
+
+console.log([...products, { id: 4, name: "Monitor", price: 300, inStock: true }])
+
+// B. Update
+
+console.log(products.map(product => product.name === "Laptop" ? {
+  ...product,
+  price: 1100
+} : product))
+
+// C. Delete
+
+console.log(products.filter(product => product.name !== "Tablet" ))
+
+// D. Filter
+
+function productsInStock (product){
+  return product.inStock === true
+}
+
+console.log(products.filter(productsInStock))
+
+// E. Filter again
+
+console.log(products.filter(product => product.price < 1000))
