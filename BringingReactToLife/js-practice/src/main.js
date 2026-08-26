@@ -58,3 +58,34 @@ function deleteProperty(object, property) {
 
 deleteProperty(person, "name")
 console.log(person)
+
+// Exercise 7 — Find something
+
+const users = [
+  { id: 1, name: "Anna", age: 25 },
+  { id: 2, name: "Erik", age: 31 },
+  { id: 3, name: "Lisa", age: 28 }
+];
+
+const id2 = users.find(user => user.id === 2)
+console.log(id2)
+
+// Exercise 8 — Filter objects
+
+const above30 = users.filter(user => user.age >= 30)
+console.log(above30)
+
+function below30(user) {
+  return user.age < 30
+}
+
+const usersBelow30 = users.filter(below30)
+console.log(usersBelow30)
+
+// Exercise 9 — Add an object
+
+console.log([...users, { id: 3, name: "Jacob", age: 38 }])
+
+// Exercise 10 — Delete an object
+
+console.log(users.filter(user => user.id !== 2))
