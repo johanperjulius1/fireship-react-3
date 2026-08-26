@@ -89,3 +89,23 @@ console.log([...users, { id: 3, name: "Jacob", age: 38 }])
 // Exercise 10 — Delete an object
 
 console.log(users.filter(user => user.id !== 2))
+
+// Exercise 11 — Update one user
+
+console.log(users.map(user => {
+  if (user.name === "Erik") {
+    return {
+      ...user,
+      age: 40
+    }
+  }
+  return user
+}))
+
+// Exercise 12 — Update a different property
+
+console.log(users.map(user => user.name === "Lisa" ? {
+  ...user,
+  name: "Elizabeth"
+} : user
+))
