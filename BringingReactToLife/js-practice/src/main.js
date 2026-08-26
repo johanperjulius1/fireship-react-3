@@ -109,3 +109,26 @@ console.log(users.map(user => user.name === "Lisa" ? {
   name: "Elizabeth"
 } : user
 ))
+
+// Level 5 — Mini CRUD challenge
+
+// Exercise 13 — CREATE
+
+console.log([...users, { id: 4, name: "Marcus", age: 35 }])
+
+// Exercise 14 — DELETE
+
+console.log(users.filter(user => user.id !== 2))
+
+// Exercise 15 — UPDATE
+
+console.log(users.map(user => user.id === 3 ? {
+  ...user,
+  age: 29
+} : user))
+
+// Exercise 16 — FILTER
+
+const olderThan30 = users.filter(user => user.age >= 30)
+console.log(olderThan30)
+
