@@ -2,18 +2,25 @@ import { useState } from "react"
 
 export default function App() {
 
-  const [count, setCount] = useState(0)
+  const [status, setStatus] = useState("clean")
 
   const handleClick = () => {
-    setCount(count => count + 1)
-    setCount(count => count + 1)
-    setCount(count => count + 1)
-
-
-    setCount(count + 1)
-    // setCount(count + 1)
-    // setCount(count + 1)
+    setStatus(status => "dirty")
+    alert(status)
   }
+
+  // const [count, setCount] = useState(0)
+
+  // const handleClick = () => {
+  //   setCount(count => count + 1)
+  //   setCount(count => count + 1)
+  //   setCount(count => count + 1)
+
+
+  //   setCount(count + 1)
+  //   // setCount(count + 1)
+  //   // setCount(count + 1)
+  // }
 
 //   const stateArray = React.useState("initial state value")
 //   const state = stateArray[0]
@@ -26,8 +33,8 @@ export default function App() {
 
   return (
     <>
-    {count}
-     <button onClick={handleClick}>Add 1</button>
+    {/* {count} */}
+     <button onClick={handleClick}>Alert</button>
     </>
   )
 }
