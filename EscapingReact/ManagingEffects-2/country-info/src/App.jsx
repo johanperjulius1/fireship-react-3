@@ -29,7 +29,7 @@ export default function CountryInfo() {
         setIsLoading(false)
       }
     }
-    fetchData()
+    fetchData
   }, [countryCode])
 
   return (
