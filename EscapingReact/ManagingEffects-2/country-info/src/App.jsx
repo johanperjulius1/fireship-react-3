@@ -12,7 +12,7 @@ export default function CountryInfo() {
 
 
   React.useEffect(() => {
-    const url = `https://fireship.dev/api/coursesss/react/country-info/${countryCode}`;
+    const url = `https://fireship.dev/api/courses/react/country-info/${countryCode}`;
 
     const fetchData = async () => {
       setIsLoading(true)
