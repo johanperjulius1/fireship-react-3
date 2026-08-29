@@ -38,11 +38,15 @@ const getUserInfo = (username, property) => {
   if(users2[username]===undefined){
     return `No user by the username ${username} exist`
   }
+
+  if(users2[username][property]===undefined){
+    return `No propert like that exist`
+  }
   // return `${users2[username][property]}`
   return `${username}s ${property} is ${users2[username][property]}`
 }
 
-console.log(getUserInfo("anna", "age"))
-console.log(getUserInfo("Jacob", "age"))
-console.log(getUserInfo("johan", "age"))
+// console.log(getUserInfo("anna", "age"))
+console.log(getUserInfo("johan", "id"))
+// console.log(getUserInfo("johan", "age"))
 
