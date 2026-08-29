@@ -14,6 +14,35 @@ function getUserName (id) {
   return `The name of the user with id ${id} is ${users[id]}`
 }
 
-console.log(getUserName(102))
-console.log(getUserName(105))
+// console.log(getUserName(102))
+// console.log(getUserName(105))
+
+// 2 — Object inside object
+
+const users2 = {
+  johan: {
+    age: 32,
+    city: "Stockholm"
+  },
+  anna: {
+    age: 28,
+    city: "Gothenburg"
+  }
+};
+
+// Create: getUserInfo(username, property) so that
+// getUserInfo("johan", "age");
+// 32
+
+const getUserInfo = (username, property) => {
+  if(users2[username]===undefined){
+    return `No user by the username ${username} exist`
+  }
+  // return `${users2[username][property]}`
+  return `${username}s ${property} is ${users2[username][property]}`
+}
+
+console.log(getUserInfo("anna", "age"))
+console.log(getUserInfo("Jacob", "age"))
+console.log(getUserInfo("johan", "age"))
 
