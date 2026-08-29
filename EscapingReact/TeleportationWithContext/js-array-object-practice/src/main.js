@@ -9,7 +9,7 @@ const users = {
 
 function getUserName (id) {
   if(users[id] === undefined){
-    return ("user does not exist")
+    return `no user with id ${id} exist`
   }
   return `The name of the user with id ${id} is ${users[id]}`
 }
