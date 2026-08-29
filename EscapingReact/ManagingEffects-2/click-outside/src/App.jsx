@@ -21,8 +21,8 @@ export default function ClickOutside() {
           setIsOpen(false);
         }
       }
-      addEventListener("pointerdown", handleClick)
-      return () => removeEventListener("pointerdown", handleClick)
+      document.addEventListener("pointerdown", handleClick)
+      return () => document.removeEventListener("pointerdown", handleClick)
     }
 
 
