@@ -153,7 +153,13 @@ function translate(language, phrase) {
 
 console.log(translate("es", "hello"))
 
+// Exercise 9
+
 function getTranslations(language){
   return translations[language]
 }
 console.log(getTranslations("en"))
+
+const english = getTranslations("en")
+console.log(english.hello)
+
