@@ -21,23 +21,29 @@ const translations = {
 
 const languageContext = React.createContext({
   language: "en",
-  changeLanguage: () => {},
+  changeLanguage: () => { },
   translation: (key) => key
 });
 
 function LanguageProvider({ children }) {
-  const language = "en";
+  const [language, setLanguage] = React.useState("en");
 
-  const changeLanguage = () => {};
+  const changeLanguage = (userInputLanguage) => {
+    setLanguage(userInputLanguage)
+  };
 
-  const translation = () => {};
+  const translation = () => {
+    return translations[language][key]
+  };
 
-  return null;
+  return (<languageContext.Provider
+    value={{ language, changeLanguage, translation }}>
+    {children}
+  </languageContext.Provider>);
 }
 
 function LanguageSwitcher() {
-  const language = null;
-  const changeLanguage = () => {};
+  const { language, changeLanguage } = React.useContext(languageContext);
 
   return (
     <div>
@@ -52,7 +58,9 @@ function LanguageSwitcher() {
 }
 
 function Greeting() {
-  const translation = () => {};
+  const translation = () => {
+
+  };
 
   return (
     <div>
