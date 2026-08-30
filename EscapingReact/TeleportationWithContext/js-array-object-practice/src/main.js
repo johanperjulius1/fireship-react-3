@@ -70,15 +70,57 @@ function getProduct2(propertyKey, value) {
   return console.log(products.find(product => product[propertyKey] === value))
 }
 
-getProduct2("price",  700)
+getProduct2("price", 700)
 
 
 // Exercise 5 — Array of objects + function
 
-function getProductName(id){
+function getProductName(id) {
   const foundProduct = products.find(product => product.id === id)
-   console.log(foundProduct.name)
+  console.log(foundProduct.name)
 }
 
 getProductName(1)
+
+// Exercise 6 — Object containing arrays
+
+const categories = {
+  computers: ["Laptop", "Desktop", "Monitor"],
+  phones: ["iPhone", "Pixel", "Galaxy"],
+  gaming: ["PS5", "Xbox", "Switch"]
+};
+
+// create getCategory(category)
+
+// getCategory("phones");
+// ["iPhone", "Pixel", "Galaxy"]
+
+function getCategory(category) {
+  return categories[category]
+}
+
+console.log(getCategory("computers"))
+
+// Exercise 7 — Object → array → object
+
+// create getDeveloper(department, name) so getDeveloper("frontend", "Anna");
+
+// returns { name: "Anna", years: 5 } 
+
+const departments = {
+  frontend: [
+    { name: "Johan", years: 3 },
+    { name: "Anna", years: 5 }
+  ],
+  backend: [
+    { name: "Erik", years: 4 },
+    { name: "Lisa", years: 2 }
+  ]
+};
+
+function getDeveloper(department, name) {
+  return departments[department].find(developer => developer.name === name)
+}
+
+console.log(getDeveloper("backend", "Lisa"))
 
