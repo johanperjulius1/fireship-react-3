@@ -32,7 +32,7 @@ function LanguageProvider({ children }) {
     setLanguage(userInputLanguage)
   };
 
-  const translation = () => {
+  const translation = (key) => {
     return translations[language][key]
   };
 
@@ -58,9 +58,7 @@ function LanguageSwitcher() {
 }
 
 function Greeting() {
-  const translation = () => {
-
-  };
+  const { translation } = React.useContext(languageContext)
 
   return (
     <div>
