@@ -124,3 +124,36 @@ function getDeveloper(department, name) {
 
 console.log(getDeveloper("backend", "Lisa"))
 
+// Exercise 8 — This is basically your translation problem
+
+// Now recreate the pattern from your React assignment without React.
+
+const translations = {
+  en: {
+    hello: "Hello!",
+    goodbye: "Goodbye!"
+  },
+  es: {
+    hello: "¡Hola!",
+    goodbye: "¡Adiós!"
+  },
+  fr: {
+    hello: "Bonjour !",
+    goodbye: "Au revoir !"
+  }
+};
+
+//write translate(language, key)
+
+function translate(language, phrase) {
+  return translations[language]?.[phrase] ?? phrase
+}
+
+
+
+console.log(translate("es", "hello"))
+
+function getTranslations(language){
+  return translations[language]
+}
+console.log(getTranslations("en"))
