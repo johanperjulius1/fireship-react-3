@@ -155,11 +155,33 @@ console.log(translate("es", "hello"))
 
 // Exercise 9
 
-function getTranslations(language){
+function getTranslations(language) {
   return translations[language]
 }
 console.log(getTranslations("en"))
 
 const english = getTranslations("en")
 console.log(english.hello)
+
+// Exercise 10 — Mini challenge
+
+// Finally, combine everything:
+
+const books = {
+  fantasy: [
+    { title: "The Hobbit", author: "Tolkien" },
+    { title: "Dune", author: "Herbert" }
+  ],
+  mystery: [
+    { title: "The Hound", author: "Doyle" },
+    { title: "Gone Girl", author: "Flynn" }
+  ]
+};
+
+function findBook(category, title, titleOrAuthor) {
+  return books[category].find(book => book.title === title)?.[titleOrAuthor]
+}
+
+
+console.log(findBook("mystery", "The Hound", "title"))
 
