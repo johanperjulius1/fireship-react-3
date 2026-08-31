@@ -64,13 +64,13 @@ function getProduct(name) {
   console.log(products.find(product => product.name === name))
 }
 
-getProduct("Tablet")
+getProduct("hello from tablet","Tablet")
 
 function getProduct2(propertyKey, value) {
   return console.log(products.find(product => product[propertyKey] === value))
 }
 
-getProduct2("price", 700)
+getProduct2("id", 1)
 
 
 // Exercise 5 — Array of objects + function

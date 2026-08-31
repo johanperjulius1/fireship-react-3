@@ -5,8 +5,8 @@ const tabContext = React.createContext({
   setActiveTabValue: () => { }
 });
 
-function TabProvider({ children }) {
-  const [activeTabValue, setActiveTabValue] = React.useState()
+function TabProvider({ children, defaultValue }) {
+  const [activeTabValue, setActiveTabValue] = React.useState(defaultValue)
 
   return <tabContext.Provider
     value={{ activeTabValue, setActiveTabValue }}>
