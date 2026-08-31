@@ -14,24 +14,29 @@ function TabProvider({ children }) {
   </tabContext.Provider>;
 }
 
-function TabTrigger({ value }) {
-  const activeTabValue = null;
-  const setActiveTabValue = () => { };
+function TabTrigger({ value, children }) {
+  const { activeTabValue, setActiveTabValue } = React.useContext(tabContext);
 
-  const handleSetActiveTabValue = () => { };
+  const handleSetActiveTabValue = () => {
+    setActiveTabValue(value)
+  };
 
   return (
     <button
       onClick={handleSetActiveTabValue}
       className={`tab ${activeTabValue === value ? "active" : ""}`}
     >
-      TODO
+      {children}
     </button>
   );
 }
 
-function TabContent() {
-  return null;
+function TabContent({ children, value }) {
+  const { activeTabValue } = React.useContext(tabContext);
+
+  if (activeTabValue === value) {
+    return <>{children}</>;
+  }
 }
 
 export default function App() {
