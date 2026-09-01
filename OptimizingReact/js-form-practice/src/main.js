@@ -30,3 +30,31 @@ console.log("olderPerson: ", olderPerson)
 
 // Exercise 2 — Update a nested object
 
+const user = {
+  name: "Johan",
+  address: {
+    city: "Stockholm",
+    street: "Main Street",
+    zipcode: "11122"
+  }
+};
+
+const updatedUser = {
+  ...user,
+  address: {
+    ...user.address,
+    zipcode: 70230
+  }
+}
+
+
+console.log(updatedUser)
+
+// Exercise 3 — Computed property name
+
+const property = "email";
+const value = "john@example.com";
+
+console.log({
+  [property]: value
+})
