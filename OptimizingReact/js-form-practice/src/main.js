@@ -41,10 +41,28 @@ const user = {
 
 const updatedUser = {
   ...user,
-  adress: {
-    ...address,
+  address: {
+    ...user.address,
     zipcode: 12345
   }
 }
 
 console.log("Updated user: ", updatedUser)
+
+// Exercise 3 — Computed property name
+
+const property = "email";
+const value = "john@example.com";
+
+console.log({[property]: value})
+
+// Exercise 4 — Make a generic update function
+
+function updatePerson(person, property, value){
+  return {
+    ...person,
+    [property]: value
+  }
+}
+
+console.log(updatePerson(person, "name", "Anders"))
