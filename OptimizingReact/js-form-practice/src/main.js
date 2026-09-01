@@ -58,3 +58,38 @@ const value = "john@example.com";
 console.log({
   [property]: value
 })
+
+// Exercise 4 — Make a generic update function
+
+function updatePerson(person, property, value) {
+  return {
+    ...person,
+    [property]: value
+  }
+}
+
+console.log(updatePerson(person, "city", "Örebro"))
+
+// Exercise 5 — Nested generic update
+
+const state = {
+  currentStep: 1,
+  formData: {
+    name: "",
+    email: "",
+    city: ""
+  }
+};
+
+function updateForm(state, property, value) {
+  return {
+    ...state,
+    formData: {
+      ...state.formData,
+      [property]: value
+    }
+  }
+}
+
+console.log(updateForm(state, "city", "Skåne"))
+
