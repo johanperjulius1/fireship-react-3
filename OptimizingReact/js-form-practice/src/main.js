@@ -93,3 +93,16 @@ function updateForm(state, property, value) {
 
 console.log(updateForm(state, "city", "Skåne"))
 
+// Exercise 6 — Actions
+
+function updateState(state, action) {
+  switch (action.type) {
+    case "increment":
+      return {
+        ...state,
+        count: state.count + 1
+      }
+  }
+}
+
+console.log(updateState({count: 4}, {type: "increment"}))
