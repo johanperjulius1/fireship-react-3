@@ -30,34 +30,34 @@ console.log("olderPerson: ", olderPerson)
 
 // Exercise 2 — Update a nested object
 
-const user = {
-  name: "Johan",
-  address: {
-    city: "Stockholm",
-    street: "Main Street",
-    zipcode: "11122"
-  }
-};
+// const user = {
+//   name: "Johan",
+//   address: {
+//     city: "Stockholm",
+//     street: "Main Street",
+//     zipcode: "11122"
+//   }
+// };
 
-const updatedUser = {
-  ...user,
-  address: {
-    ...user.address,
-    zipcode: 70230
-  }
-}
+// const updatedUser = {
+//   ...user,
+//   address: {
+//     ...user.address,
+//     zipcode: 70230
+//   }
+// }
 
 
-console.log(updatedUser)
+// console.log(updatedUser)
 
 // Exercise 3 — Computed property name
 
-const property = "email";
-const value = "john@example.com";
+// const property = "email";
+// const value = "john@example.com";
 
-console.log({
-  [property]: value
-})
+// console.log({
+//   [property]: value
+// })
 
 // Exercise 4 — Make a generic update function
 
@@ -105,4 +105,49 @@ function updateState(state, action) {
   }
 }
 
-console.log(updateState({count: 4}, {type: "increment"}))
+console.log(updateState({ count: 4 }, { type: "increment" }))
+
+// Exercise 7 — Form actions
+
+// Now combine Exercises 5 and 6.
+
+// What is meant by "combine 5 and 6"?
+// What is 5 about?
+// What is 6 about?
+
+function updateState2(state, action) {
+  switch (action.type) {
+    case "increment":
+      return {
+        ...state,
+        currentStep: state.currentStep + 1
+      }
+
+    case "decrement":
+      return {
+        ...state,
+        currentStep: state.currentStep - 1
+      }
+
+    case "change":
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          [action.property]: action.value
+        }
+      }
+  }
+}
+
+console.log("Hello from update 2", updateState2(state, {
+  type: "change",
+  property: "city",
+  value: "London"
+}));
+
+// console.log("Hello from update state 2", updateState2(state, { type: "increment" }))
+// console.log("Hello from update state 2", updateState2(state, { type: "decrement" }))
+
+
+
