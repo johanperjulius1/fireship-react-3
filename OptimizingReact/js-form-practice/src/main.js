@@ -1,10 +1,10 @@
 const button = document.getElementById("button")
 button.addEventListener("click", increaseByOne)
 
-let count = 0 
+let count = 0
 console.log(button)
 
-function increaseByOne (){
+function increaseByOne() {
   console.log("count button was clicked")
   return count = count + 1
 }
@@ -54,11 +54,11 @@ console.log("Updated user: ", updatedUser)
 const property = "email";
 const value = "john@example.com";
 
-console.log({[property]: value})
+console.log({ [property]: value })
 
 // Exercise 4 — Make a generic update function
 
-function updatePerson(person, property, value){
+function updatePerson(person, property, value) {
   return {
     ...person,
     [property]: value
@@ -66,3 +66,36 @@ function updatePerson(person, property, value){
 }
 
 console.log(updatePerson(person, "name", "Anders"))
+
+// Exercise 5 — Nested generic update
+
+const state = {
+  currentStep: 1,
+  formData: {
+    name: "",
+    email: "",
+    city: ""
+  }
+};
+
+// function updateForm(state, property, value) {
+//   return {
+//     ...state,
+//     formData: {
+//       ...state.formData,
+//       [property]: value
+//     }
+//   }
+// }
+
+function updateForm2(state, property, value) {
+  return {
+    ...state,
+    formData: {
+      ...state.formData,
+      [property]: value
+    }
+  }
+}
+
+console.log("update form: ",updateForm2(state, "name", "Jacob"))
