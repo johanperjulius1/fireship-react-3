@@ -98,4 +98,34 @@ function updateForm2(state, property, value) {
   }
 }
 
-console.log("update form: ",updateForm2(state, "name", "Jacob"))
+console.log("update form: ", updateForm2(state, "name", "Jacob"))
+
+// Exercise 6 — Actions
+
+const state2 = {
+  count: 2
+};
+
+// function updateState(state, action) {
+//   switch (action.type) {
+//     case "increment":
+//       return {
+//         ...state,
+//         count: state.count + 1
+//       }
+//   }
+// }
+
+// console.log(updateState(state2, { type: "increment" }));
+
+function updateState2(state, action) {
+  switch (action.type) {
+    case "increment":
+      return {
+        ...state,
+        count: state.count + 1
+      }
+  }
+}
+
+console.log(updateState2({ count: 8 }, { type: "increment" }))
