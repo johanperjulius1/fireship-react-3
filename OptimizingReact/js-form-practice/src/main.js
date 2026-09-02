@@ -150,8 +150,6 @@ const updateUser = (state, action) => {
         ...state,
         loggedIn: false
       }
-    default:
-      return state
   }
 }
 
@@ -161,4 +159,4 @@ console.log(updateUser(initialState2, {
   value: "Johan"
 }))
 console.log(updateUser(initialState2, { type: "login" }))
-console.log(updateUser(initialState2, { type: "logout" }))
+// console.log(updateUser(initialState2, { type: "logout" }))
