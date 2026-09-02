@@ -87,3 +87,36 @@ const updatePrice = (products, id, newPrice) => (products.map(product => product
 } : product))
 
 console.log("hello from updated price ", updatePrice(products, 2, 450))
+
+// Exercise 5 — Actions
+
+// Now introduce action.
+
+// Given:
+
+const initialState = {
+  count: 0
+};
+
+function updateCounter(state, action) {
+  switch (action.type) {
+    case "increment":
+      return {
+        count: state.count + 1
+      }
+    case "decrement":
+      return {
+        count: state.count - 1
+      }
+    case "reset":
+      return {
+        count: 0
+      }
+  }
+}
+
+console.log(updateCounter(initialState, { type: "increment" }))
+console.log(updateCounter({ count: 5 }, { type: "increment" }))
+console.log(updateCounter({ count: 10 }, { type: "decrement" }))
+console.log(updateCounter({ count: 10 }, { type: "reset" }))
+
