@@ -120,3 +120,45 @@ console.log(updateCounter({ count: 5 }, { type: "increment" }))
 console.log(updateCounter({ count: 10 }, { type: "decrement" }))
 console.log(updateCounter({ count: 10 }, { type: "reset" }))
 
+// Exercise 6 — Nested state + actions
+
+const initialState2 = {
+  user: {
+    name: "",
+    email: ""
+  },
+  loggedIn: false
+};
+
+const updateUser = (state, action) => {
+  switch (action.type) {
+    case "change":
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          [action.property]: action.value
+        }
+      }
+    case "login":
+      return {
+        ...state,
+        loggedIn: true
+      }
+    case "logout":
+      return {
+        ...state,
+        loggedIn: false
+      }
+    default:
+      return state
+  }
+}
+
+console.log(updateUser(initialState2, {
+  type: "change",
+  property: "name",
+  value: "Johan"
+}))
+console.log(updateUser(initialState2, { type: "login" }))
+console.log(updateUser(initialState2, { type: "logout" }))
