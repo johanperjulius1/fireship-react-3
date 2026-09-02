@@ -104,3 +104,38 @@ function updateForm(state, property, value) {
 }
 
 console.log(updateForm(state, "name", "Johan"))
+
+// Exercise 6 — Actions
+
+const state2 = {
+  count: 5
+};
+
+const action = {
+  type: "increment"
+};
+
+function updateState(state, action) {
+  switch(action.type){
+    case "increment":
+      return {
+        ...state,
+        count: state.count + 1
+      }
+    case "decrement":
+      return {
+        ...state,
+        count: state.count - 1
+      }
+    case "reset":
+      return {
+        ...state,
+        count: 0
+      }
+  }
+}
+
+console.log(updateState(state2, {type: "increment"}))
+console.log(updateState(state2, {type: "decrement"}))
+console.log(updateState(state2, {type: "reset"}))
+
