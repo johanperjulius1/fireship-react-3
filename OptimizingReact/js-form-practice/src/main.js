@@ -60,3 +60,30 @@ const value = "blue";
 console.log({
   [property]: value
 })
+
+// Exercise 4 — Array of objects
+
+const products = [
+  { id: 1, name: "Laptop", price: 1000 },
+  { id: 2, name: "Phone", price: 500 },
+  { id: 3, name: "Tablet", price: 300 }
+];
+
+// const updatePrice = (products, id, newPrice) => {
+//   return products.map(product => {
+//     if(product.id === id){
+//       return {
+//         ...product,
+//         price: newPrice
+//       }
+//     }
+//     return product
+//   })
+// }
+
+const updatePrice = (products, id, newPrice) => (products.map(product => product.id === id ? {
+  ...product,
+  price: newPrice
+} : product))
+
+console.log("hello from updated price ", updatePrice(products, 2, 450))
