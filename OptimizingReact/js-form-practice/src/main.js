@@ -15,173 +15,48 @@ console.log(count)
 
 // exercise 1
 
-const person = {
-  name: "Johan",
-  age: 32,
-  city: "Stockholm"
+const book = {
+  title: "Dune",
+  author: "Frank Herbert",
+  year: 1965
 };
 
-const olderPerson = {
-  ...person,
-  city: "Örebro"
-}
-
-console.log("hello from olderPerson: ", olderPerson)
-
-console.log("hello from : ",)
-
-
-// Exercise 2 — Update a nested object
-
-const user = {
-  name: "Johan",
-  address: {
-    city: "Stockholm",
-    street: "Main Street",
-    zipcode: "11122"
-  }
-};
-
-// Create a new object called updatedUser where:
-
-const updatedUser = {
-  ...user,
-  address: {
-    ...user.address,
-    zipcode: 70230
-  }
-}
-
-console.log("hello from updatedUser: ", updatedUser)
-
-// Exercise 3 — Computed property name
-
-const property = "email";
-const value = "john@example.com";
-
-console.log("hello from computed Property value: ", { [property]: value })
-
-// Exercise 4 — Make a generic update function
-
-// given const person = {
-//   name: "Johan",
-//   age: 32,
-//   city: "Stockholm"
-// };
-
-// Create a function: updatePerson(person, property, value)
-// that returns a new object with the specified property changed. For example:
-// updatePerson(person, "name", "Alex");
-
-function updatePerson(person, property, value) {
+function updateBook(book, property, value) {
   return {
-    ...person,
+    ...book,
     [property]: value
   }
 }
 
-console.log(updatePerson(person, "city", "Västerås"))
+console.log(updateBook(book, "year", 1970))
 
-// Exercise 5 — Nested generic update
+// Exercise 2 — Nested object
 
-const state = {
-  currentStep: 1,
-  formData: {
-    name: "",
-    email: "",
-    city: ""
+const user = {
+  name: "Anna",
+  preferences: {
+    language: "English",
+    theme: "light"
   }
 };
 
-function updateForm(state, property, value) {
+function updatePreference(user, property, value) {
   return {
-    ...state,
-    formData: {
-      ...state.formData,
+    ...user,
+    preferences: {
+      ...user.preferences,
       [property]: value
     }
   }
 }
 
-console.log(updateForm(state, "name", "Johan"))
+console.log(updatePreference(user, "theme", "dark"));
 
-// Exercise 6 — Actions
+// Exercise 3 — Computed property
 
-const state2 = {
-  count: 5
-};
+const property = "color";
+const value = "blue";
 
-const action = {
-  type: "increment"
-};
-
-function updateState(state, action) {
-  switch (action.type) {
-    case "increment":
-      return {
-        ...state,
-        count: state.count + 1
-      }
-    case "decrement":
-      return {
-        ...state,
-        count: state.count - 1
-      }
-    case "reset":
-      return {
-        ...state,
-        count: 0
-      }
-  }
-}
-
-console.log(updateState(state2, { type: "increment" }))
-console.log(updateState(state2, { type: "decrement" }))
-console.log(updateState(state2, { type: "reset" }))
-
-// Exercise 7 — Form actions
-
-const state3 = {
-  currentStep: 1,
-  formData: {
-    name: "",
-    email: "",
-    city: ""
-  }
-};
-
-function updateState3(state, action) {
-  switch (action.type) {
-    case "next":
-      return {
-        ...state,
-        currentStep: state.currentStep + 1
-      }
-    case "prev":
-      return {
-        ...state,
-        currentStep: state.currentStep - 1
-      }
-    case "change":
-      return {
-        ...state,
-        formData: {
-          ...state.formData,
-          [action.name]: action.value
-        }
-      }
-    case "reset":
-      return state3
-  }
-}
-
-console.log(updateState3(state3, { type: "next" }))
-console.log(updateState3(state3, { type: "prev" }))
-console.log(updateState3(state3,
-  {
-    type: "change",
-    name: "email",
-    value: "hotmail.com"
-  }))
-
-console.log(updateState3(state3, { type: "reset" }))
+console.log({
+  [property]: value
+})
