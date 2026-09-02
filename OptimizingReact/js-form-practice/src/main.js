@@ -73,7 +73,7 @@ console.log("hello from computed Property value: ", { [property]: value })
 // that returns a new object with the specified property changed. For example:
 // updatePerson(person, "name", "Alex");
 
-function updatePerson(person, property, value){
+function updatePerson(person, property, value) {
   return {
     ...person,
     [property]: value
@@ -96,7 +96,7 @@ const state = {
 function updateForm(state, property, value) {
   return {
     ...state,
-    formData : {
+    formData: {
       ...state.formData,
       [property]: value
     }
@@ -116,7 +116,7 @@ const action = {
 };
 
 function updateState(state, action) {
-  switch(action.type){
+  switch (action.type) {
     case "increment":
       return {
         ...state,
@@ -135,7 +135,53 @@ function updateState(state, action) {
   }
 }
 
-console.log(updateState(state2, {type: "increment"}))
-console.log(updateState(state2, {type: "decrement"}))
-console.log(updateState(state2, {type: "reset"}))
+console.log(updateState(state2, { type: "increment" }))
+console.log(updateState(state2, { type: "decrement" }))
+console.log(updateState(state2, { type: "reset" }))
 
+// Exercise 7 — Form actions
+
+const state3 = {
+  currentStep: 1,
+  formData: {
+    name: "",
+    email: "",
+    city: ""
+  }
+};
+
+function updateState3(state, action) {
+  switch (action.type) {
+    case "next":
+      return {
+        ...state,
+        currentStep: state.currentStep + 1
+      }
+    case "prev":
+      return {
+        ...state,
+        currentStep: state.currentStep - 1
+      }
+    case "change":
+      return {
+        ...state,
+        formData: {
+          ...state.formData,
+          [action.name]: action.value
+        }
+      }
+    case "reset":
+      return state3
+  }
+}
+
+console.log(updateState3(state3, { type: "next" }))
+console.log(updateState3(state3, { type: "prev" }))
+console.log(updateState3(state3,
+  {
+    type: "change",
+    name: "email",
+    value: "hotmail.com"
+  }))
+
+console.log(updateState3(state3, { type: "reset" }))
