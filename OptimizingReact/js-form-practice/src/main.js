@@ -11,152 +11,43 @@ function increaseByOne() {
 
 console.log(count)
 
-// --------------------------------------
+// mini assignments.
 
-// exercise 1
+const fruits = ["apple", "banana"];
+const newFruit = "orange";
+const newFruits = [...fruits, newFruit]
 
-const book = {
-  title: "Dune",
-  author: "Frank Herbert",
-  year: 1965
-};
-
-function updateBook(book, property, value) {
-  return {
-    ...book,
-    [property]: value
-  }
-}
-
-console.log(updateBook(book, "year", 1970))
-
-// Exercise 2 — Nested object
-
-const user = {
-  name: "Anna",
-  preferences: {
-    language: "English",
-    theme: "light"
-  }
-};
-
-function updatePreference(user, property, value) {
-  return {
-    ...user,
-    preferences: {
-      ...user.preferences,
-      [property]: value
-    }
-  }
-}
-
-console.log(updatePreference(user, "theme", "dark"));
-
-// Exercise 3 — Computed property
-
-const property = "color";
-const value = "blue";
-
-console.log({
-  [property]: value
-})
-
-// Exercise 4 — Array of objects
-
-const products = [
-  { id: 1, name: "Laptop", price: 1000 },
-  { id: 2, name: "Phone", price: 500 },
-  { id: 3, name: "Tablet", price: 300 }
+const items = [
+  { id: 1, name: "Book" }
 ];
 
-// const updatePrice = (products, id, newPrice) => {
-//   return products.map(product => {
-//     if(product.id === id){
-//       return {
-//         ...product,
-//         price: newPrice
-//       }
-//     }
-//     return product
-//   })
-// }
+// const newItem = {
+//   id: 2,
+//   name: "Pen"
+// };
 
-const updatePrice = (products, id, newPrice) => (products.map(product => product.id === id ? {
-  ...product,
-  price: newPrice
-} : product))
+// const newItems = [...items, newItem]
 
-console.log("hello from updated price ", updatePrice(products, 2, 450))
-
-// Exercise 5 — Actions
-
-// Now introduce action.
-
-// Given:
-
-const initialState = {
-  count: 0
+const action = {
+  type: "add",
+  item: {
+    id: 1,
+    name: "Book",
+    price: 20
+  }
 };
 
-function updateCounter(state, action) {
-  switch (action.type) {
-    case "increment":
-      return {
-        count: state.count + 1
-      }
-    case "decrement":
-      return {
-        count: state.count - 1
-      }
-    case "reset":
-      return {
-        count: 0
-      }
-  }
-}
+console.log(action["type"])
 
-console.log(updateCounter(initialState, { type: "increment" }))
-console.log(updateCounter({ count: 5 }, { type: "increment" }))
-console.log(updateCounter({ count: 10 }, { type: "decrement" }))
-console.log(updateCounter({ count: 10 }, { type: "reset" }))
+const newItems = [...items, action.item]
 
-// Exercise 6 — Nested state + actions
+const state = {
+  items: []
+}; 
 
-const initialState2 = {
-  user: {
-    name: "",
-    email: ""
-  },
-  loggedIn: false
+[...state.items, action.item]
+
+const newState = {
+  ...state,
+  action.item
 };
-
-const updateUser = (state, action) => {
-  switch (action.type) {
-    case "change":
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          [action.property]: action.value
-        }
-      }
-    case "login":
-      return {
-        ...state,
-        loggedIn: true
-      }
-    case "logout":
-      return {
-        ...state,
-        loggedIn: false
-      }
-  }
-}
-
-console.log(updateUser(initialState2, {
-  type: "change",
-  property: "name",
-  value: "Johan"
-}))
-console.log(updateUser(initialState2, { type: "login" }))
-// console.log(updateUser(initialState2, { type: "logout" }))
