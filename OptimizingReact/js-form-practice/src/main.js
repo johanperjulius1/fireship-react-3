@@ -13,56 +13,58 @@ console.log(count)
 
 // mini assignments. 1
 
-const fruits = ["apple", "banana"]
+// 5
 
-const newFruit = "orange"
-const newFruits = [...fruits, newFruit]
-
-// 2
-
-const person = {
-  name: "Johan",
-  age: 32
-}
-
-const newAge = 33
-
-const olderPerson = {
-  ...person,
-  age: newAge
-}
-
-// 3
-
-const items = [
-  {
+const state = {
+  items: [{
     id: 1,
-    name: "book",
-    price: 100
-  }
-]
-
-const newItem = {
-  id: 2,
-  name: "pen",
-  price: 200
-}
-
-const moreItems = [...items, newItem]
-
-// 4
+    name: "Pen",
+    price: 20
+  }],
+  total: 10
+};
 
 const action = {
   type: "add",
   item: {
-    id: 2,
-    name: "Pen",
-    price: 200
+    id: 1,
+    name: "Book",
+    price: 20
   }
 };
 
-action.item
+let newTotal = state.total + action.item.price
 
-// 5
+// 11
 
-const newItems = [...items, action.item ]
+const newState = {
+  ...state,
+  items: [...state.items, action.item],
+  total: state.total + action.item.price
+}
+
+// Mini-assignment 12 — One small step toward the reducer   
+
+function updateCart(state, action) {
+  switch (action.type) {
+    case "add":
+      return {
+        ...state,
+        items: [...state.items, action.item],
+        total: state.total + action.item.price
+      }
+  }
+}
+
+console.log(updateCart(state, action))
+
+const numbers = [1, 2, 3, 4];
+const newNumbers = numbers.filter(number => number !== 3)
+console.log(newNumbers)
+
+function numberFilter (numbersArray, numberToFilter){
+  return numbersArray.filter(number => number !== numberToFilter)
+}
+
+console.log(numberFilter([3, 4, 6], 4))
+
