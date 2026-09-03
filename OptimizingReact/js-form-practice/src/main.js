@@ -116,3 +116,13 @@ const newState3 = {
 
 console.log(newState3)
 
+const smallItems = [
+  { id: 1, name: "Book", price: 20 },
+  { id: 2, name: "Pen", price: 10 },
+  { id: 3, name: "Chair", price: 30 }
+];
+
+console.log(smallItems.reduce((a, b) => a + b.price, 0))
+
+const arr = [1, 2, 7, 10]
+console.log(arr.reduce((a, b) => a + b))
