@@ -84,3 +84,35 @@ const filterItems = (items, id) => {
 
 console.log(filterItems(items, 1))
 
+// Mini-assignment 3 — Get the item ID from action
+
+const action2 = {
+  type: "remove",
+  id: 2
+};
+
+const newItems2 = items.filter(item => item.id !== action2.id)
+
+// Mini-assignment 5 — Remove from state
+
+const state3 = {
+  items: [
+    { id: 1, name: "Book" },
+    { id: 2, name: "Pen" },
+    { id: 3, name: "Chair" }
+  ],
+  total: 50
+};
+
+const action3 = {
+  type: "remove",
+  id: 2
+};
+
+const newState3 = {
+  ...state3,
+  items: state3.items.filter(item => item.id !== action3.id)
+}
+
+console.log(newState3)
+
