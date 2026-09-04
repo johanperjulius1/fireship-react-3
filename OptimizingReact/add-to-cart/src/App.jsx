@@ -13,7 +13,12 @@ function calculateTotal(cart) {
 const initialState = [];
 
 function reducer(cart, action) {
-  return cart;
+  switch(action.type){
+    case "add":
+        return [...cart, product.id === action.id]
+  }
+  
+    return cart;
 }
 
 export default function ShoppingCart() {
