@@ -3,7 +3,10 @@ import { createTask } from "./utils";
 import "./App.css"
 
 function reducer(tasks, action) {
-  return tasks;
+  switch(action.type){
+    case "add" :
+      return [...tasks, action.task]
+  }
 }
 
 export default function TaskManager() {
