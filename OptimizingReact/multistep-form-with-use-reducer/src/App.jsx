@@ -23,7 +23,7 @@ const initialState = {
 
 export default function MultistepFormReducer() {
 
-  const [state, dispatch] = useReducer(reducer, initialState)
+  const [state, dispatch] = React.useReducer(reducer, initialState)
 
   function reducer(state, action) {
     switch (action.type) {
@@ -55,22 +55,31 @@ export default function MultistepFormReducer() {
   }
 
   const handleNextStep = () => {
-    dispatch( {type: "next"});
+    dispatch({ type: "next" });
   };
 
   const handlePrevStep = () => {
-    dispatch( {type: "prev"});
+    dispatch({ type: "prev" });
   };
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    console.log("handle changed was fired")
+    console.log(e.target.name)
+    console.log(e.target.value)
+
+    dispatch(
+      {
+        type: "change",
+        name: e.target.name,
+        value: e.target.value
+      }
+    )
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Thank you for your submission");
-    dispatch({type: "reset"});
-    setFormData(initialState.formData);
+    dispatch({ type: "reset" });
   };
 
   if (state.currentStep === 1) {
