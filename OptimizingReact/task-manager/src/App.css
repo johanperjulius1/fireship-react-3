@@ -3,6 +3,7 @@
 section {
   max-width: 400px;
   margin: auto;
+  background: blue;
 }
 
 header {

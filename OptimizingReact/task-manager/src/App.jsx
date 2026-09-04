@@ -3,9 +3,23 @@ import { createTask } from "./utils";
 import "./App.css"
 
 function reducer(tasks, action) {
-  switch(action.type){
-    case "add" :
+  switch (action.type) {
+    case "add":
       return [...tasks, action.task]
+
+    case "delete":
+      return tasks.filter(task => task.id !== action.id)
+
+    case "update":
+      return tasks.map(task => {
+        if (task.id === action.id) {
+          return {
+            ...task,
+            status: task.status === "pending" ? "completed" : "pending"
+          }
+        }
+        return task
+      })
   }
 }
 
@@ -13,6 +27,7 @@ export default function TaskManager() {
   const [tasks, dispatch] = React.useReducer(reducer, []);
 
   const handleUpdateTaskStatus = (id) => {
+    console.log("status updated")
     dispatch({ type: "update", id });
   };
 
