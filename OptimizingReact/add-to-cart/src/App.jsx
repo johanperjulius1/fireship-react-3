@@ -13,12 +13,26 @@ function calculateTotal(cart) {
 const initialState = [];
 
 function reducer(cart, action) {
-  switch(action.type){
+  switch (action.type) {
     case "add":
-        return [...cart, product.id === action.id]
+      const inCart = Boolean(cart.find((item) => item.id === action.id));
+      if (!inCart) {
+        const productToAdd = products.find(p => p.id === action.id)
+        return [...cart, { ...productToAdd, quantity: 1 }]
+      }
+
+      return cart.map(product => {
+        if (product.id === action.id) {
+          return {
+            ...product,
+            quantity: product.quantity + 1
+          }
+        }
+        return product;
+      })
   }
-  
-    return cart;
+
+  return cart;
 }
 
 export default function ShoppingCart() {
