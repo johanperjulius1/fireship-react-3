@@ -7,7 +7,9 @@ const products = [
 ];
 
 function calculateTotal(cart) {
-  return 0;
+  return cart.reduce((a, b) => {
+    return a + b.quantity * b.price
+  }, 0)
 }
 
 const initialState = [];
