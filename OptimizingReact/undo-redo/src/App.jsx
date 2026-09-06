@@ -13,14 +13,21 @@ function reducer(state, action) {
     case "increment":
       return {
         ...state,
-        present: state.present + 1
+        present: state.present + 1,
+        past: [...state.past, action.type]
       }
 
     case "decrement":
       return {
         ...state,
-        present: state.present - 1
+        present: state.present - 1,
+        past: [...state.past, action.type]
       }
+    
+      case "undo":
+        return {
+          ...state
+        }
 
   }
 }
