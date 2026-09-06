@@ -30,8 +30,29 @@ function reducer(cart, action) {
         }
         return product;
       })
-  }
 
+    case "update":
+      return cart
+        .map((product) => {
+          if (product.id !== action.id) {
+            return product
+          }
+          if (action.adjustment === "increment") {
+            return {
+              ...product,
+              quantity: product.quantity + 1
+            }
+          }
+          if (action.adjustment === "decrement") {
+            return {
+              ...product,
+              quantity: product.quantity - 1
+            }
+          }
+          return product
+        })
+        .filter((product) => product.quantity > 0)
+  }
   return cart;
 }
 
