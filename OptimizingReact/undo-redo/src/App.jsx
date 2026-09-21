@@ -14,21 +14,30 @@ function reducer(state, action) {
       return {
         ...state,
         present: state.present + 1,
-        past: [...state.past, action.type]
+        past: [state.present, ...state.past],
+        future: []
       }
 
     case "decrement":
       return {
         ...state,
         present: state.present - 1,
-        past: [...state.past, action.type]
+        past: [state.present, ...state.past],
+        future: []
       }
-    
-      case "undo":
-        return {
-          ...state
-        }
 
+    case "undo":
+      return {
+        past: past.slice(1),
+        present: past[0],
+        future: [present, ...future]
+      }
+    case "redo":
+      return {
+        past: [present, ...past],
+        present: future[0],
+        future: future.slice(1)
+      }
   }
 }
 
@@ -41,8 +50,12 @@ export default function CounterWithUndoRedo() {
   const handleDecrement = () => {
     dispatch({ type: "decrement" })
   };
-  const handleUndo = () => { };
-  const handleRedo = () => { };
+  const handleUndo = () => {
+    dispatch({ type: "undo" })
+  };
+  const handleRedo = () => {
+    dispatch({ type: "redo" })
+  };
 
   return (
     <div>
