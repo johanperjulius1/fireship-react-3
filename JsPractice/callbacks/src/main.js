@@ -85,3 +85,40 @@ const isEven = (number) => {
 };
 
 console.log(filterArray(numbers, isEven));
+
+// 5. Callback that works with objects
+
+const users = [
+  { name: "Anna", age: 25 },
+  { name: "John", age: 17 },
+  { name: "Maria", age: 32 }
+];
+
+// Create a function called findUsers that:
+
+// Takes the users array.
+// Takes a callback.
+// Returns a new array containing only the users for whom the callback returns true.
+
+const findUsers = (arr, callback) => {
+  let filteredUsers = []
+  for(let i = 0; i < arr.length; i ++){
+    if(callback(arr[i])){
+      filteredUsers = [...filteredUsers, arr[i]]
+    }
+  }
+  return filteredUsers
+}
+
+const isAdult = (user) => {
+  if (user.age >= 18){
+    return true
+  }
+}
+
+// console.log(findUsers(users, isAdult))
+console.log(findUsers(users, (user) => {
+  if(user.age >= 18){
+    return true
+  }
+}))
