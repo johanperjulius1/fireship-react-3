@@ -55,8 +55,6 @@ console.log(transformArray(numbers, double));
 // A deterministic function gives you the same result when given the same inputs.
 
 // 2. Pure
-// Purity is about whether the function affects the outside world.
-
 
 // A pure function has two important properties:
 
